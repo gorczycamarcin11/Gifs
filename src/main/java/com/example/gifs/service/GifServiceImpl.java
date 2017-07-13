@@ -1,7 +1,7 @@
 package com.example.gifs.service;
 
 import com.example.gifs.dao.GifDao;
-import model.Gif;
+import com.example.gifs.model.Gif;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

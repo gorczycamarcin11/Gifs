@@ -1,4 +1,4 @@
-package model;
+package com.example.gifs.model;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 

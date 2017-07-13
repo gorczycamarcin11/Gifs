@@ -1,6 +1,6 @@
 package com.example.gifs.dao;
 
-import model.Gif;
+import com.example.gifs.model.Gif;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
