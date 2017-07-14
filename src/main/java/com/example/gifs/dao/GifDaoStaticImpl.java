@@ -4,8 +4,8 @@ import com.example.gifs.model.Gif;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by marcin on 13.07.17.
@@ -14,10 +14,11 @@ import java.util.List;
 @Repository
 public class GifDaoStaticImpl implements GifDao {
 
-    private static final List<Gif> GIFS = new ArrayList<>();
+    private static final Set<Gif> GIFS = new HashSet<>();
 
     static {
         Gif g1 = new Gif();
+        g1.setId(1L);
         g1.setTitle("Android explosion");
         g1.setDescription("Android explodes");
         g1.setTimestamp(LocalDate.now());
@@ -26,6 +27,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g2 = new Gif();
+        g2.setId(2L);
         g2.setTitle("Ben and Mike");
         g2.setDescription("Ben and mike");
         g2.setTimestamp(LocalDate.now());
@@ -34,6 +36,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g3 = new Gif();
+        g3.setId(3L);
         g3.setTitle("Book dominos");
         g3.setDescription("Book dominos");
         g3.setTimestamp(LocalDate.now());
@@ -42,6 +45,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g4 = new Gif();
+        g4.setId(4L);
         g4.setTitle("Compiler bot");
         g4.setDescription("Compiler bot");
         g4.setTimestamp(LocalDate.now());
@@ -50,6 +54,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g5 = new Gif();
+        g5.setId(5L);
         g5.setTitle("Cowboy coder");
         g5.setDescription("Cowboy coder");
         g5.setTimestamp(LocalDate.now());
@@ -58,6 +63,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g6 = new Gif();
+        g6.setId(6L);
         g6.setTitle("Infinite Andrew");
         g6.setDescription("Infinite Andrew");
         g6.setTimestamp(LocalDate.now());
@@ -66,6 +72,7 @@ public class GifDaoStaticImpl implements GifDao {
 
 
         Gif g7 = new Gif();
+        g7.setId(7L);
         g7.setTitle("Rickroll");
         g7.setDescription("Rickroll");
         g7.setTimestamp(LocalDate.now());
@@ -84,7 +91,22 @@ public class GifDaoStaticImpl implements GifDao {
 
 
     @Override
-    public List<Gif> findAll() {
+    public Set<Gif> findAll() {
         return GIFS;
+    }
+
+    @Override
+    public Gif findById(Long id) {
+        for (Gif gif : GIFS) {
+            if (gif.getId().equals(id)) {
+                return gif;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void updateVisitCount(Gif gif) {
+        GIFS.add(gif);
     }
 }

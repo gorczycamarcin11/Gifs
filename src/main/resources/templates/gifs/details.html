@@ -19,13 +19,15 @@
 <div th:replace="shared/nav"></div>
 
 <div class="row">
-    <div th:each="gif : ${list}">
-        <div class="col-xs-4 text-center">
-            <a th:href="@{/gif/{id}(id=${gif.id})}">
-            <!--<h1 th:text="${gif.title}">Title</h1>-->
-            <img class="img-resize" th:src="${gif.imagePath}" th:alt="${gif.title}"/>
-            </a>
-        </div>
+    <div class="col-xs-12 text-center" th:object="${gif}">
+        <h1 th:text="${gif.title}">Title</h1>
+        <img class="img-details-center" th:src="${gif.imagePath}" th:alt="${gif.title}"/>
+        <h2>Description: </h2>
+        <p th:text="${gif.description}"></p>
+        <h3>Added: </h3>
+        <p th:text="${gif.timestamp}"></p>
+        <h3>Visit count: </h3>
+        <p th:text="${gif.visitCount}"></p>
     </div>
 </div>
 

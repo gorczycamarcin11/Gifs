@@ -2,11 +2,13 @@ package com.example.gifs.dao;
 
 import com.example.gifs.model.Gif;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by marcin on 13.07.17.
  */
 public interface GifDao {
-    List<Gif> findAll();
+    Set<Gif> findAll();
+    Gif findById(Long id);
+    void updateVisitCount(Gif gif);
 }

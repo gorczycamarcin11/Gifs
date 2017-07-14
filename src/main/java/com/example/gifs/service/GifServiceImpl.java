@@ -5,7 +5,7 @@ import com.example.gifs.model.Gif;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by marcin on 13.07.17.
@@ -18,7 +18,18 @@ public class GifServiceImpl implements GifService {
 
 
     @Override
-    public List<Gif> getList() {
+    public Set<Gif> getList() {
         return gifDaoStaticImpl.findAll();
+    }
+
+    public Gif findById(Long id) throws GifNotFoundException {
+        Gif gif = gifDaoStaticImpl.findById(id);
+        if (gif == null) {
+            throw new GifNotFoundException();
+        }else{
+            gif.increaseCount();
+
+        }
+        return gif;
     }
 }
