@@ -32,4 +32,9 @@ public class GifServiceImpl implements GifService {
         }
         return gif;
     }
+
+    @Override
+    public void save(Gif gif) {
+        gifDaoStaticImpl.save(gif);
+    }
 }

@@ -10,5 +10,9 @@ import java.util.Set;
 public interface GifService {
 
     Set<Gif> getList();
+
     Gif findById(Long id) throws GifNotFoundException;
+
+    void save(Gif gif);
+
 }

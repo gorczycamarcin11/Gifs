@@ -79,13 +79,13 @@ public class GifDaoStaticImpl implements GifDao {
         g7.setVisitCount(0);
         g7.setImagePath("/gifs/rickroll.gif");
 
-        GIFS.add(g1);
-        GIFS.add(g2);
-        GIFS.add(g3);
-        GIFS.add(g4);
-        GIFS.add(g5);
-        GIFS.add(g6);
-        GIFS.add(g7);
+//        GIFS.add(g1);
+//        GIFS.add(g2);
+//        GIFS.add(g3);
+//        GIFS.add(g4);
+//        GIFS.add(g5);
+//        GIFS.add(g6);
+//        GIFS.add(g7);
 
     }
 
@@ -107,6 +107,13 @@ public class GifDaoStaticImpl implements GifDao {
 
     @Override
     public void updateVisitCount(Gif gif) {
+        GIFS.add(gif);
+    }
+
+    @Override
+    public void save(Gif gif) {
+        long newId = GIFS.size()+1;
+        gif.setId(newId);
         GIFS.add(gif);
     }
 }

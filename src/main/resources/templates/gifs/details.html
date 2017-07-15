@@ -21,13 +21,14 @@
 <div class="row">
     <div class="col-xs-12 text-center" th:object="${gif}">
         <h1 th:text="${gif.title}">Title</h1>
-        <img class="img-details-center" th:src="${gif.imagePath}" th:alt="${gif.title}"/>
-        <h2>Description: </h2>
-        <p th:text="${gif.description}"></p>
-        <h3>Added: </h3>
-        <p th:text="${gif.timestamp}"></p>
-        <h3>Visit count: </h3>
-        <p th:text="${gif.visitCount}"></p>
+        <!--<img class="img-details-center" th:src="${gif.imagePath}" th:alt="${gif.title}"/>-->
+        <img class="img-details-center" th:src="@{/files/{filename}(filename=${gif.imagePath})}"/>
+        <h2 class="white">Description: </h2>
+        <p class="white" th:text="${gif.description}"></p>
+        <h3 class="white">Added: </h3>
+        <p class="white" th:text="${gif.timestamp}"></p>
+        <h3 class="white">Visit count: </h3>
+        <p class="white" th:text="${gif.visitCount}"></p>
     </div>
 </div>
 

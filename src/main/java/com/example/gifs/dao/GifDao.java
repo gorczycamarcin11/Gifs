@@ -11,4 +11,5 @@ public interface GifDao {
     Set<Gif> findAll();
     Gif findById(Long id);
     void updateVisitCount(Gif gif);
+    void save(Gif gif);
 }

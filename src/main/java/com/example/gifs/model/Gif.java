@@ -1,9 +1,11 @@
 package com.example.gifs.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 /**
@@ -13,8 +15,14 @@ import java.time.LocalDate;
 @Entity
 public class Gif extends AbstractPersistable<Long> {
 
+    @NotEmpty
+    @NotNull
     private String title;
+
+    @NotEmpty
+    @NotNull
     private String description;
+
     private LocalDate timestamp;
     private String imagePath;
     private int visitCount;

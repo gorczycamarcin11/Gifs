@@ -24,15 +24,15 @@
 
         <form class="form-group" enctype="multipart/form-data" th:object="${gif}" th:action="@{/add}" method="post">
             <div class="input-group">
-                <label class="label-color-white" for="title">Title: </label>
+                <label class="white" for="title">Title: </label>
                 <input class="form-control" type="text" th:field="*{title}" id="title" name="title"/>
             </div>
             <div class="input-group">
-                <label class="label-color-white" for="description">Description: </label>
+                <label class="white" for="description">Description: </label>
                 <input class="form-control" type="text" th:field="*{description}" id="description" name="description"/>
             </div>
             <div class="input-group">
-                <label class="label-color-white" for="file">Upload file</label>
+                <label class="white" for="file">Upload file</label>
                 <input class="form-control" type="file" id="file" name="file"/>
             </div>
             <div class="input-group">

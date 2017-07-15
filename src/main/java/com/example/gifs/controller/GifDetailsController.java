@@ -35,7 +35,6 @@ public class GifDetailsController {
             } catch (GifNotFoundException e) {
                 return redirect();
             }
-
         }
     }
 
@@ -44,6 +43,5 @@ public class GifDetailsController {
         mav.setViewName("redirect:/");
         return mav;
     }
-
 
 }
