@@ -29,8 +29,7 @@ public class GifDetailsController {
         } else {
             try {
                 Gif gif = gifServiceImpl.findById(id);
-                ModelAndView mav = new ModelAndView();
-                mav.setViewName("gifs/details");
+                ModelAndView mav = new ModelAndView("gifs/details");
                 mav.addObject("gif", gif);
                 return mav;
             } catch (GifNotFoundException e) {

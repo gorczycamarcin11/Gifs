@@ -19,7 +19,8 @@ public class Gif extends AbstractPersistable<Long> {
     private String imagePath;
     private int visitCount;
 
-    public Gif() {}
+    public Gif() {
+    }
 
     @Override
     public Long getId() {
@@ -91,6 +92,18 @@ public class Gif extends AbstractPersistable<Long> {
         int result = super.hashCode();
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Gif: " +
+                "id = " + getId() +
+                ", title = " + title +
+                ", description = " + description +
+                ", timestamp = " + timestamp +
+                ", imagePath = " + imagePath +
+                ", visitCount = " + visitCount;
     }
 }
 

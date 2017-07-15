@@ -11,21 +11,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="/style.css"/>
-    <title>Gifs</title>
+    <title>List</title>
 </head>
 
 
 <body class="container">
 <div th:replace="shared/nav"></div>
 
-<div class="row">
-    <div th:each="gif : ${list}">
-        <div class="col-xs-4 text-center">
-            <a th:href="@{/gif/{id}(id=${gif.id})}">
-            <!--<h1 th:text="${gif.title}">Title</h1>-->
-            <img class="img-resize" th:src="${gif.imagePath}" th:alt="${gif.title}"/>
-            </a>
-        </div>
+<div class="row row-without-margin">
+    <div>
+
+
+        <form class="form-group" enctype="multipart/form-data" th:object="${gif}" th:action="@{/add}" method="post">
+            <div class="input-group">
+                <label class="label-color-white" for="title">Title: </label>
+                <input class="form-control" type="text" th:field="*{title}" id="title" name="title"/>
+            </div>
+            <div class="input-group">
+                <label class="label-color-white" for="description">Description: </label>
+                <input class="form-control" type="text" th:field="*{description}" id="description" name="description"/>
+            </div>
+            <div class="input-group">
+                <label class="label-color-white" for="file">Upload file</label>
+                <input class="form-control" type="file" id="file" name="file"/>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+
+
     </div>
 </div>
 

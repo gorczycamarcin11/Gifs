@@ -2,6 +2,9 @@
     display: block;
     width: 100%;
     height: 200px;
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:#ff0;
 }
 
 .navbar-default {
@@ -20,4 +23,20 @@
     position: relative;
     min-height: 1px;
     padding: 15px;
+}
+body  {
+    background-image: url("background.jpg");
+}
+
+.label-color-white{
+    color: #FFFFFF;
+}
+.input-group {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.row-without-margin{
+    margin-right: 0px;
+    margin-left: 0px;
 }
