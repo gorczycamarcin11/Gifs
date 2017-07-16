@@ -15,4 +15,6 @@ public interface GifService {
 
     void save(Gif gif);
 
+    Gif findRandom() throws GifNotFoundException;
+
 }

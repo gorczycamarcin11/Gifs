@@ -26,7 +26,7 @@ public class GifServiceImpl implements GifService {
         Gif gif = gifDaoStaticImpl.findById(id);
         if (gif == null) {
             throw new GifNotFoundException();
-        }else{
+        } else {
             gif.increaseCount();
 
         }
@@ -36,5 +36,21 @@ public class GifServiceImpl implements GifService {
     @Override
     public void save(Gif gif) {
         gifDaoStaticImpl.save(gif);
+    }
+
+    @Override
+    public Gif findRandom() throws GifNotFoundException {
+        Gif mem = gifDaoStaticImpl.findRandom();
+        return getGifAndUpdate(mem);
+    }
+
+    private Gif getGifAndUpdate(Gif gif) throws GifNotFoundException {
+        if (gif == null) {
+            throw new GifNotFoundException();
+        } else {
+            gif.increaseCount();
+            gifDaoStaticImpl.updateVisitCount(gif);
+        }
+        return gif;
     }
 }

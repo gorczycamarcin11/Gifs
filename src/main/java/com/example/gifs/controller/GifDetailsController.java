@@ -38,6 +38,18 @@ public class GifDetailsController {
         }
     }
 
+    @GetMapping("random")
+    public ModelAndView findRandom() throws GifNotFoundException{
+        try {
+            Gif gif = gifServiceImpl.findRandom();
+            ModelAndView mav = new ModelAndView("gifs/details");
+            mav.addObject("gif", gif);
+            return mav;
+        } catch (GifNotFoundException e) {
+            return redirect();
+        }
+    }
+
     private ModelAndView redirect() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/");

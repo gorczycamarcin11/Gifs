@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -112,8 +113,18 @@ public class GifDaoStaticImpl implements GifDao {
 
     @Override
     public void save(Gif gif) {
-        long newId = GIFS.size()+1;
+        long newId = GIFS.size() + 1;
         gif.setId(newId);
         GIFS.add(gif);
     }
+
+    @Override
+    public Gif findRandom() {
+
+        int maxId = GIFS.size();
+        Random random = new Random();
+        long randomId = random.nextInt(maxId) + 1;
+        return findById(randomId);
+    }
+
 }
