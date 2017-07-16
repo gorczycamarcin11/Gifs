@@ -31,7 +31,7 @@ public class Gif extends AbstractPersistable<Long> {
 
     private LocalDateTime timestamp;
 
-    @NotBlank
+
     private String imagePath;
     private int visitCount;
 

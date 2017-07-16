@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by marcin on 16.07.17.
@@ -24,8 +21,8 @@ public class GifDaoImplCrud implements GifDao {
 
     @Override
     public Set<Gif> findAll() {
-        Iterable<Gif> collection = gifDaoCrud.findAll();
-        Set<Gif> gifs = new HashSet<>();
+        Iterable<Gif> collection = gifDaoCrud.findAllByOrderByTimestampDesc();
+        Set<Gif> gifs = new LinkedHashSet<>();
         collection.forEach(gifs::add);
         return gifs;
     }
