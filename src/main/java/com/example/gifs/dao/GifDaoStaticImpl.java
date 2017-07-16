@@ -4,6 +4,7 @@ import com.example.gifs.model.Gif;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -22,7 +23,7 @@ public class GifDaoStaticImpl implements GifDao {
         g1.setId(1L);
         g1.setTitle("Android explosion");
         g1.setDescription("Android explodes");
-        g1.setTimestamp(LocalDate.now());
+        g1.setTimestamp(LocalDateTime.now());
         g1.setVisitCount(0);
         g1.setImagePath("/gifs/android-explosion.gif");
 
@@ -31,7 +32,7 @@ public class GifDaoStaticImpl implements GifDao {
         g2.setId(2L);
         g2.setTitle("Ben and Mike");
         g2.setDescription("Ben and mike");
-        g2.setTimestamp(LocalDate.now());
+        g2.setTimestamp(LocalDateTime.now());
         g2.setVisitCount(0);
         g2.setImagePath("/gifs/ben-and-mike.gif");
 
@@ -40,7 +41,7 @@ public class GifDaoStaticImpl implements GifDao {
         g3.setId(3L);
         g3.setTitle("Book dominos");
         g3.setDescription("Book dominos");
-        g3.setTimestamp(LocalDate.now());
+        g3.setTimestamp(LocalDateTime.now());
         g3.setVisitCount(0);
         g3.setImagePath("/gifs/book-dominos.gif");
 
@@ -49,7 +50,7 @@ public class GifDaoStaticImpl implements GifDao {
         g4.setId(4L);
         g4.setTitle("Compiler bot");
         g4.setDescription("Compiler bot");
-        g4.setTimestamp(LocalDate.now());
+        g4.setTimestamp(LocalDateTime.now());
         g4.setVisitCount(0);
         g4.setImagePath("/gifs/compiler-bot.gif");
 
@@ -58,7 +59,7 @@ public class GifDaoStaticImpl implements GifDao {
         g5.setId(5L);
         g5.setTitle("Cowboy coder");
         g5.setDescription("Cowboy coder");
-        g5.setTimestamp(LocalDate.now());
+        g5.setTimestamp(LocalDateTime.now());
         g5.setVisitCount(0);
         g5.setImagePath("/gifs/cowboy-coder.gif");
 
@@ -67,7 +68,7 @@ public class GifDaoStaticImpl implements GifDao {
         g6.setId(6L);
         g6.setTitle("Infinite Andrew");
         g6.setDescription("Infinite Andrew");
-        g6.setTimestamp(LocalDate.now());
+        g6.setTimestamp(LocalDateTime.now());
         g6.setVisitCount(0);
         g6.setImagePath("/gifs/infinite-andrew.gif");
 
@@ -76,7 +77,7 @@ public class GifDaoStaticImpl implements GifDao {
         g7.setId(7L);
         g7.setTitle("Rickroll");
         g7.setDescription("Rickroll");
-        g7.setTimestamp(LocalDate.now());
+        g7.setTimestamp(LocalDateTime.now());
         g7.setVisitCount(0);
         g7.setImagePath("/gifs/rickroll.gif");
 

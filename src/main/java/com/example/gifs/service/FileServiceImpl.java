@@ -39,22 +39,22 @@ public class FileServiceImpl implements FileService {
 
         if (file.isEmpty()) {
             throw new MultipartException("File is empty");
-        }
-        if (!isImage(file)) {
+        } else if (!isImage(file)) {
             throw new MultipartException("File is in forbidden format");
-        }
+        } else {
 
-        InputStream is = file.getInputStream();
-        Path uploadLocation = Paths.get(UPLOAD_PATH);
-        long timeStamp = Instant.now().getEpochSecond();
-        String newFileName = timeStamp + " - " + file.getOriginalFilename();
-        Path targetPath = uploadLocation.resolve(newFileName);
-        long bytesWritten = Files.copy(is, targetPath);
+            InputStream is = file.getInputStream();
+            Path uploadLocation = Paths.get(UPLOAD_PATH);
+            long timeStamp = Instant.now().getEpochSecond();
+            String newFileName = timeStamp + " - " + file.getOriginalFilename();
+            Path targetPath = uploadLocation.resolve(newFileName);
+            long bytesWritten = Files.copy(is, targetPath);
 
-        if (bytesWritten <= 0) {
-            throw new FileServiceException("Couldn't copy file");
+            if (bytesWritten <= 0) {
+                throw new FileServiceException("Couldn't copy file");
+            }
+            return newFileName;
         }
-        return newFileName;
     }
 
     @Override

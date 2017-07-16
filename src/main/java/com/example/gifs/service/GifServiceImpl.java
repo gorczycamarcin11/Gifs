@@ -14,16 +14,16 @@ import java.util.Set;
 public class GifServiceImpl implements GifService {
 
     @Autowired
-    private GifDao gifDaoStaticImpl;
+    private GifDao gifDaoImpl;
 
 
     @Override
     public Set<Gif> getList() {
-        return gifDaoStaticImpl.findAll();
+        return gifDaoImpl.findAll();
     }
 
     public Gif findById(Long id) throws GifNotFoundException {
-        Gif gif = gifDaoStaticImpl.findById(id);
+        Gif gif = gifDaoImpl.findById(id);
         if (gif == null) {
             throw new GifNotFoundException();
         } else {
@@ -35,12 +35,12 @@ public class GifServiceImpl implements GifService {
 
     @Override
     public void save(Gif gif) {
-        gifDaoStaticImpl.save(gif);
+        gifDaoImpl.save(gif);
     }
 
     @Override
     public Gif findRandom() throws GifNotFoundException {
-        Gif mem = gifDaoStaticImpl.findRandom();
+        Gif mem = gifDaoImpl.findRandom();
         return getGifAndUpdate(mem);
     }
 
@@ -49,7 +49,7 @@ public class GifServiceImpl implements GifService {
             throw new GifNotFoundException();
         } else {
             gif.increaseCount();
-            gifDaoStaticImpl.updateVisitCount(gif);
+            gifDaoImpl.updateVisitCount(gif);
         }
         return gif;
     }

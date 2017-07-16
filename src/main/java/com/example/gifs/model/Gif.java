@@ -1,12 +1,16 @@
 package com.example.gifs.model;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by marcin on 14.07.17.
@@ -15,15 +19,19 @@ import java.time.LocalDate;
 @Entity
 public class Gif extends AbstractPersistable<Long> {
 
-    @NotEmpty
+    @Column(name = "TITLE", nullable = false)
+    @NotEmpty(message = "This field cannot be empty")
     @NotNull
     private String title;
 
-    @NotEmpty
+    @Column(name = "DESCRIPTION", nullable = false)
+    @NotEmpty(message = "This field cannot be empty")
     @NotNull
     private String description;
 
-    private LocalDate timestamp;
+    private LocalDateTime timestamp;
+
+    @NotBlank
     private String imagePath;
     private int visitCount;
 
@@ -56,11 +64,11 @@ public class Gif extends AbstractPersistable<Long> {
         this.description = description;
     }
 
-    public LocalDate getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDate timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -100,6 +108,11 @@ public class Gif extends AbstractPersistable<Long> {
         int result = super.hashCode();
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+    @PrePersist
+    public void onPersist() {
+        this.setTimestamp(LocalDateTime.now());
     }
 
 

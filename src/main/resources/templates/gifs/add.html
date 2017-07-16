@@ -23,17 +23,20 @@
 
 
         <form class="form-group" enctype="multipart/form-data" th:object="${gif}" th:action="@{/add}" method="post">
-            <div class="input-group">
+            <div class="input-group" th:classappend="${#fields.hasErrors('imagePath')} ? 'has-error' : ''">
                 <label class="white" for="title">Title: </label>
                 <input class="form-control" type="text" th:field="*{title}" id="title" name="title"/>
+                <div class="help-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
             </div>
-            <div class="input-group">
+            <div class="input-group" th:classappend="${#fields.hasErrors('imagePath')} ? 'has-error' : ''">
                 <label class="white" for="description">Description: </label>
                 <input class="form-control" type="text" th:field="*{description}" id="description" name="description"/>
+                <div class="help-block" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
             </div>
-            <div class="input-group">
+            <div class="input-group" th:classappend="${#fields.hasErrors('imagePath')} ? 'has-error' : ''">
                 <label class="white" for="file">Upload file</label>
                 <input class="form-control" type="file" id="file" name="file"/>
+                <div class="help-block" th:if="${#fields.hasErrors('imagePath')}" th:errors="*{imagePath}"></div>
             </div>
             <div class="input-group">
                 <button type="submit" class="btn btn-primary">Send</button>
