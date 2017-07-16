@@ -24,13 +24,7 @@ public class GifServiceImpl implements GifService {
 
     public Gif findById(Long id) throws GifNotFoundException {
         Gif gif = gifDaoImpl.findById(id);
-        if (gif == null) {
-            throw new GifNotFoundException();
-        } else {
-            gif.increaseCount();
-
-        }
-        return gif;
+        return getGifAndUpdate(gif);
     }
 
     @Override

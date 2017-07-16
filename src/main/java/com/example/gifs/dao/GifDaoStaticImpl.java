@@ -3,7 +3,7 @@ package com.example.gifs.dao;
 import com.example.gifs.model.Gif;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Random;

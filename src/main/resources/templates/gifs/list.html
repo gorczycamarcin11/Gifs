@@ -18,9 +18,9 @@
 <body class="container">
 <div th:replace="shared/nav"></div>
 
-<div class="row">
-    <div th:each="gif : ${list}">
-        <div class="col-xs-4 text-center">
+<div th:each="gif : ${list}">
+    <div class="row">
+        <div class="col-xs-12 text-center">
             <a th:href="@{/gif/{id}(id=${gif.id})}">
                 <!--<h1 th:text="${gif.title}">Title</h1>-->
                 <!--<img class="img-resize" th:src="${gif.imagePath}"/>-->

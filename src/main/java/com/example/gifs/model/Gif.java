@@ -29,10 +29,13 @@ public class Gif extends AbstractPersistable<Long> {
     @NotNull
     private String description;
 
+    @Column(name = "TIMESTAMP", nullable = false)
     private LocalDateTime timestamp;
 
-
+    @Column(name = "IMAGE_PATH", unique = true, nullable = false)
     private String imagePath;
+
+    @Column(name = "VISIT_COUNT")
     private int visitCount;
 
     public Gif() {
