@@ -23,14 +23,58 @@
         <h1 class="white" th:text="${gif.title}">Title</h1>
         <!--<img class="img-details-center" th:src="${gif.imagePath}" th:alt="${gif.title}"/>-->
         <img class="img-details-center" th:src="@{/files/{filename}(filename=${gif.imagePath})}"/>
+    </div>
+</div>
+<div class="text-center col-xs-12">
+    <div class="text-center col-xs-4">
         <h2 class="white">Description: </h2>
         <p class="white" th:text="${gif.description}"></p>
+    </div>
+    <div class="text-center col-xs-4">
         <h3 class="white">Added: </h3>
         <p class="white" th:text="${gif.timestamp}"></p>
+    </div>
+    <div class="text-center col-xs-4">
         <h3 class="white">Visit count: </h3>
         <p class="white" th:text="${gif.visitCount}"></p>
     </div>
+
+
 </div>
+
+<div class="col-xs-6">
+    <h2 class="white text-center">Add comment</h2>
+
+    <form class="form-group" enctype="multipart/form-data" th:object="${comment}" th:action="@{/comment }"
+          method="post">
+        <input type="hidden" name="gifId" th:value="${gif.id}"/>
+        <div class="input-group" th:classappend="${#fields.hasErrors('nickname')} ? 'has-error' : ''">
+            <label class="white" for="nickname">Title: </label>
+            <input class="form-control" type="text" th:field="*{nickname}" id="nickname" name="nickname"/>
+            <div class="help-block" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></div>
+        </div>
+        <div class="input-group" th:classappend="${#fields.hasErrors('text')} ? 'has-error' : ''">
+            <label class="white" for="text">Comment: </label>
+            <textarea class="form-control" th:field="*{text}" id="text" name="text"> </textarea>
+            <div class="help-block" th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
+        </div>
+        <div class="input-group">
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+</div>
+
+<div class="col-xs-6">
+    <h2 class="white text-center">Comments</h2>
+    <div th:each="comm: ${gif.commentList}">
+        <div class="col-xs-12 text-center">
+            <p class="white">Added: <span th:text="${comm.nickname}"></span></p>
+            <p class="white">Date: <span th:text="${comm.timestamp}"></span></p>
+            <p class="white" th:text="${comm.text}">Content: </p>
+        </div>
+    </div>
+</div>
+
 
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"

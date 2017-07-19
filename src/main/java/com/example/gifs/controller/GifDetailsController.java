@@ -1,5 +1,6 @@
 package com.example.gifs.controller;
 
+import com.example.gifs.model.Comment;
 import com.example.gifs.model.Gif;
 import com.example.gifs.service.GifNotFoundException;
 import com.example.gifs.service.GifService;
@@ -31,6 +32,7 @@ public class GifDetailsController {
                 Gif gif = gifServiceImpl.findById(id);
                 ModelAndView mav = new ModelAndView("gifs/details");
                 mav.addObject("gif", gif);
+                mav.addObject("comment", new Comment());
                 return mav;
             } catch (GifNotFoundException e) {
                 return redirect();
@@ -44,6 +46,7 @@ public class GifDetailsController {
             Gif gif = gifServiceImpl.findRandom();
             ModelAndView mav = new ModelAndView("gifs/details");
             mav.addObject("gif", gif);
+            mav.addObject("comment", new Comment());
             return mav;
         } catch (GifNotFoundException e) {
             return redirect();

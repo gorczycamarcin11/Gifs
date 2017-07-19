@@ -4,13 +4,11 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by marcin on 14.07.17.
@@ -37,6 +35,9 @@ public class Gif extends AbstractPersistable<Long> {
 
     @Column(name = "VISIT_COUNT")
     private int visitCount;
+
+    @OneToMany(mappedBy = "gif")
+    private List<Comment> commentList;
 
     public Gif() {
     }
@@ -93,6 +94,14 @@ public class Gif extends AbstractPersistable<Long> {
 
     public void increaseCount() {
         ++this.visitCount;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 
     @Override
