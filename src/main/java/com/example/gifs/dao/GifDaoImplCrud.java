@@ -21,7 +21,7 @@ public class GifDaoImplCrud implements GifDao {
 
     @Override
     public Set<Gif> findAll() {
-        Iterable<Gif> collection = gifDaoCrud.findAllByOrderByTimestampDesc();
+        Iterable<Gif> collection = gifDaoCrud.findAllOrderByTimestampDesc();
         Set<Gif> gifs = new LinkedHashSet<>();
         collection.forEach(gifs::add);
         return gifs;

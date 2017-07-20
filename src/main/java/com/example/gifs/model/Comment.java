@@ -82,4 +82,5 @@ public class Comment extends AbstractPersistable<Long> {
         this.gif = gif;
     }
 
+
 }
