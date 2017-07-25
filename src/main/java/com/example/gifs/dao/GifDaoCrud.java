@@ -18,5 +18,4 @@ public interface GifDaoCrud extends CrudRepository<Gif, Long> {
 
     @Query("SELECT g FROM Gif g ORDER BY g.timestamp DESC")
     List<Gif> findAllOrderByTimestampDesc();
-
 }

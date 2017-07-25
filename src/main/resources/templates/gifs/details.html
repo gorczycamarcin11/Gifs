@@ -21,8 +21,8 @@
 <div class="row">
     <div class="col-xs-12 text-center" th:object="${gif}">
         <h1 class="white" th:text="${gif.title}">Title</h1>
-        <!--<img class="img-details-center" th:src="${gif.imagePath}" th:alt="${gif.title}"/>-->
-        <img class="img-details-center" th:src="@{/files/{filename}(filename=${gif.imagePath})}"/>
+        <!--<img class="img-details-center" th:src="${imagePath}" th:alt="${gif.title}"/>-->
+        <img class="img-details-center" th:src="@{/files/image/{id}(id=${gif.id})}"/>
     </div>
 </div>
 <div class="text-center col-xs-12">

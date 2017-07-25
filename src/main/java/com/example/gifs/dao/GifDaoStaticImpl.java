@@ -25,7 +25,7 @@ public class GifDaoStaticImpl implements GifDao {
         g1.setDescription("Android explodes");
         g1.setTimestamp(LocalDateTime.now());
         g1.setVisitCount(0);
-        g1.setImagePath("/gifs/android-explosion.gif");
+//        g1.setImage("/gifs/android-explosion.gif");
 
 
         Gif g2 = new Gif();
@@ -34,7 +34,7 @@ public class GifDaoStaticImpl implements GifDao {
         g2.setDescription("Ben and mike");
         g2.setTimestamp(LocalDateTime.now());
         g2.setVisitCount(0);
-        g2.setImagePath("/gifs/ben-and-mike.gif");
+//        g2.setImage("/gifs/ben-and-mike.gif");
 
 
         Gif g3 = new Gif();
@@ -43,7 +43,7 @@ public class GifDaoStaticImpl implements GifDao {
         g3.setDescription("Book dominos");
         g3.setTimestamp(LocalDateTime.now());
         g3.setVisitCount(0);
-        g3.setImagePath("/gifs/book-dominos.gif");
+//        g3.setImage("/gifs/book-dominos.gif");
 
 
         Gif g4 = new Gif();
@@ -52,7 +52,7 @@ public class GifDaoStaticImpl implements GifDao {
         g4.setDescription("Compiler bot");
         g4.setTimestamp(LocalDateTime.now());
         g4.setVisitCount(0);
-        g4.setImagePath("/gifs/compiler-bot.gif");
+//        g4.setImage("/gifs/compiler-bot.gif");
 
 
         Gif g5 = new Gif();
@@ -61,7 +61,7 @@ public class GifDaoStaticImpl implements GifDao {
         g5.setDescription("Cowboy coder");
         g5.setTimestamp(LocalDateTime.now());
         g5.setVisitCount(0);
-        g5.setImagePath("/gifs/cowboy-coder.gif");
+//        g5.setImage("/gifs/cowboy-coder.gif");
 
 
         Gif g6 = new Gif();
@@ -70,7 +70,7 @@ public class GifDaoStaticImpl implements GifDao {
         g6.setDescription("Infinite Andrew");
         g6.setTimestamp(LocalDateTime.now());
         g6.setVisitCount(0);
-        g6.setImagePath("/gifs/infinite-andrew.gif");
+//        g6.setImage("/gifs/infinite-andrew.gif");
 
 
         Gif g7 = new Gif();
@@ -79,7 +79,7 @@ public class GifDaoStaticImpl implements GifDao {
         g7.setDescription("Rickroll");
         g7.setTimestamp(LocalDateTime.now());
         g7.setVisitCount(0);
-        g7.setImagePath("/gifs/rickroll.gif");
+//        g7.setImage("/gifs/rickroll.gif");
 
 //        GIFS.add(g1);
 //        GIFS.add(g2);

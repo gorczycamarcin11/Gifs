@@ -34,8 +34,8 @@ public class GifServiceImpl implements GifService {
 
     @Override
     public Gif findRandom() throws GifNotFoundException {
-        Gif mem = gifDaoImpl.findRandom();
-        return getGifAndUpdate(mem);
+        Gif gif = gifDaoImpl.findRandom();
+        return getGifAndUpdate(gif);
     }
 
     private Gif getGifAndUpdate(Gif gif) throws GifNotFoundException {

@@ -1,6 +1,5 @@
 package com.example.gifs.model;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -30,8 +29,8 @@ public class Gif extends AbstractPersistable<Long> {
     @Column(name = "TIMESTAMP", nullable = false)
     private LocalDateTime timestamp;
 
-    @Column(name = "IMAGE_PATH", unique = true, nullable = false)
-    private String imagePath;
+    @Column(name = "IMAGE", columnDefinition = "BYTEA")
+    private byte[] image;
 
     @Column(name = "VISIT_COUNT")
     private int visitCount;
@@ -76,12 +75,12 @@ public class Gif extends AbstractPersistable<Long> {
         this.timestamp = timestamp;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public int getVisitCount() {
@@ -135,7 +134,7 @@ public class Gif extends AbstractPersistable<Long> {
                 ", title = " + title +
                 ", description = " + description +
                 ", timestamp = " + timestamp +
-                ", imagePath = " + imagePath +
+                ", image = " + image +
                 ", visitCount = " + visitCount;
     }
 }

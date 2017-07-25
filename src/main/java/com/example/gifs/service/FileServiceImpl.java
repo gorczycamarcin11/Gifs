@@ -23,7 +23,7 @@ public class FileServiceImpl implements FileService {
     private static final String UPLOAD_PATH = "upload";
 
     private boolean isImage(MultipartFile file) {
-        return file.getContentType().startsWith("image");
+        return file.getContentType().startsWith("image/gif");
     }
 
     private void createDirectory() throws IOException {

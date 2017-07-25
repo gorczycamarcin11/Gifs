@@ -1,7 +1,6 @@
 package com.example.gifs.controller;
 
 import com.example.gifs.model.Gif;
-import com.example.gifs.service.FileService;
 import com.example.gifs.service.FileServiceException;
 import com.example.gifs.service.GifService;
 import org.slf4j.Logger;
@@ -19,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.nio.file.Path;
 
 
 /**
@@ -30,9 +28,6 @@ import java.nio.file.Path;
 public class AddGifController {
 
     private static Logger LOG = LoggerFactory.getLogger(AddGifController.class);
-
-    @Autowired
-    private FileService fileService;
 
     @Autowired
     private GifService gifService;
@@ -49,27 +44,23 @@ public class AddGifController {
         LOG.info("File received {}", file);
         LOG.info("Gif received {}", gif);
 
-        if (bindingResult.hasErrors()) {
-
+        if (file.isEmpty() || !file.getContentType().startsWith("image/gif")) {
+            bindingResult.addError(new FieldError("gif", "image", "File is empty or in forbidden format"));
             return addGifFormModelAndView(gif);
-
         } else {
             try {
-                String uploadedFile = fileService.store(file);
-                LOG.info("File stored {}", uploadedFile);
-                gif.setImagePath(uploadedFile);
+                gif.setImage(file.getBytes());
                 gifService.save(gif);
                 return new ModelAndView("redirect:/");
-            } catch (IOException | FileServiceException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
                 LOG.error("Error during file store", e);
-
-                bindingResult.addError(new FieldError("gif", "imagePath", "Error sending file"));
-
+                bindingResult.addError(new FieldError("gif", "image", "Error sending file"));
                 return addGifFormModelAndView(gif);
             }
         }
     }
+
 
     private ModelAndView addGifFormModelAndView(@Valid Gif gif) {
         ModelAndView mav = new ModelAndView("gifs/add");

@@ -23,8 +23,8 @@
         <div class="col-xs-12 text-center">
             <a th:href="@{/gif/{id}(id=${gif.id})}">
                 <!--<h1 th:text="${gif.title}">Title</h1>-->
-                <!--<img class="img-resize" th:src="${gif.imagePath}"/>-->
-                <img class="img-resize" th:src="@{/files/{filename}(filename=${gif.imagePath})}"/>
+                <!--<img class="img-resize" th:src="${imagePath}"/>-->
+                <img class="img-resize" th:src="@{/files/image/{id}(id=${gif.id})}"/>
             </a>
         </div>
     </div>
